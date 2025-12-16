@@ -47,6 +47,8 @@ Copy the `jalali-date.jar` file to a directory accessible by Doris FE and BE nod
 
 Use the following SQL commands to create the UDFs in Doris. Adjust the file path if necessary.
 
+#### Doris Config
+
 ```sql
 CREATE FUNCTION pDate(STRING) RETURNS STRING
 PROPERTIES (
@@ -123,6 +125,86 @@ PROPERTIES (
 "file"="file:///opt/apache-doris/udf/jalali-date.jar",
 "symbol"="com.ildrm.jalali.MyDivUDF",
 "type"="JAVA_UDF"
+);
+```
+
+#### StarRocks
+```sql
+CREATE FUNCTION pDate(STRING) RETURNS STRING
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.PDateUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION pYear(STRING) RETURNS INT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.PYearUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION pMonth(STRING) RETURNS INT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.PMonthUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION pMonthName(STRING) RETURNS STRING
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.PMonthNameUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION pDay(STRING) RETURNS INT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.PDayUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION myMod(INT, INT) RETURNS BIGINT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.MyModUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION gdmArray(SMALLINT) RETURNS SMALLINT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.GdmArrayUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION gDate(SMALLINT, SMALLINT, SMALLINT) RETURNS STRING
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.GDateUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION gDateStr(STRING) RETURNS STRING
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.GDateStrUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION jdmArray(SMALLINT) RETURNS SMALLINT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.JdmArrayUDF",
+"type"="StarrocksJar"
+);
+
+CREATE FUNCTION myDiv(INT, INT) RETURNS BIGINT
+PROPERTIES (
+"file"="file:///opt/starrocks/udf/jalali-date.jar",
+"symbol"="com.ildrm.jalali.MyDivUDF",
+"type"="StarrocksJar"
 );
 ```
 
